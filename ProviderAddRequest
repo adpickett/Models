@@ -1,0 +1,35 @@
+using Sabio.Models.Requests.Files;
+using Sabio.Models.Requests.Locations;
+using Sabio.Models.Requests.Practice;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace Sabio.Models.Requests.Providers
+{
+    public class ProvidersAddRequest2
+    {
+        [Range(1, int.MaxValue)]
+        public int TitleTypeId { get; set; }
+
+        [Required]
+        public int UserProfileId { get; set; }
+
+        [Required]
+        [Range(0, int.MaxValue)]
+        public int GenderTypeId { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 10)]
+        public string Phone { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 10)]
+        public string Fax { get; set; }
+
+        public List<LocationAddRequest2> locations { get; set; }
+        
+        public List<PracticeAddRequest2> practices { get; set; }
+}
+}
